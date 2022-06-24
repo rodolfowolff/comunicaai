@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { preventAutoHideAsync, hideAsync } from "expo-splash-screen";
-import Entypo from "@expo/vector-icons/Entypo";
 import { ThemeProvider } from "styled-components/native";
 import { Text, View } from "react-native";
 import {
@@ -9,37 +8,32 @@ import {
   Inter_400Regular,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
-import { loadAsync } from "expo-font";
+
 import theme from "./src/theme";
 
 export default function App() {
-  // const [appIsReady, setAppIsReady] = useState(false);
+  const [appIsReady, setAppIsReady] = useState(false);
   const [fontsLoaded] = useFonts({
     Inter_700Bold,
     Inter_400Regular,
   });
 
-  const onLayoutRootView = useCallback(async () => {
+  useEffect(() => {
+    preventAutoHideAsync();
     if (fontsLoaded) {
-      await hideAsync();
+      hideAsync();
     }
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    return null;
+    preventAutoHideAsync();
   }
 
   return (
     <ThemeProvider theme={theme}>
       <StatusBar style="dark" translucent backgroundColor="transparent" />
-      <View
-        style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        onLayout={onLayoutRootView}
-      >
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text style={{ fontFamily: theme.FONTS.SIZES.BOLD }}>
-          SplashScreen Demo! 👋
-        </Text>
-        <Text style={{ fontFamily: theme.FONTS.SIZES.NORMAL }}>
           SplashScreen Demo! 👋
         </Text>
       </View>

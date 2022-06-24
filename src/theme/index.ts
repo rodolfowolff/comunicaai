@@ -10,7 +10,7 @@ export default {
     SUBTEXT: "#14213D",
 
     WHITE: "#FFFFFF",
-    BLACK: "#0A1428",
+    BLACK: "#001010",
     BORDER: "#C5CADA",
   },
 

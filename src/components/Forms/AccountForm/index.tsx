@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Alert } from "react-native";
 
-import { Button } from "../../../components/Controllers/Button";
-import { Input } from "../../../components/Controllers/Input";
+import { Button } from "@components/Controllers/Button";
+import { Input } from "@components/Controllers/Input";
 import { Form, Title, SubTitle } from "./styles";
 
 export function AccountForm() {

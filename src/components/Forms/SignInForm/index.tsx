@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import { FooterButton } from "../../../components/Controllers/FooterButton";
-import { Button } from "../../../components/Controllers/Button";
-import { Input } from "../../../components/Controllers/Input";
+import { FooterButton } from "@components/Controllers/FooterButton";
+import { Button } from "@components/Controllers/Button";
+import { Input } from "@components/Controllers/Input";
 import { Form, Title, SubTitle, Footer } from "./styles";
 
 export function SignInForm() {

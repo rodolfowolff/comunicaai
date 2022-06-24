@@ -1,7 +1,7 @@
 import React from "react";
 import { KeyboardAvoidingView, Platform } from "react-native";
 
-import { SignInForm } from "../../components/Forms/SignInForm";
+import { SignInForm } from "@components/Forms/SignInForm";
 import { Container, Content } from "./styles";
 
 export function SignIn() {

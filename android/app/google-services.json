@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "144851908332",
+    "project_id": "comunicaai-89727",
+    "storage_bucket": "comunicaai-89727.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144851908332:android:5d1e5d46123b2d592297c9",
+        "android_client_info": {
+          "package_name": "comunicaai.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144851908332-2vlflqu2qe2bq1qh27gvljgja81cg06i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvRIbiN7HAF1G_dngCSIp3cxmgohkzeE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144851908332-2vlflqu2qe2bq1qh27gvljgja81cg06i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

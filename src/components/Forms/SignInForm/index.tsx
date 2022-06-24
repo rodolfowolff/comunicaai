@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
+import auth from "@react-native-firebase/auth";
 
 import { FooterButton } from "@components/Controllers/FooterButton";
 import { Button } from "@components/Controllers/Button";
@@ -14,10 +17,47 @@ export function SignInForm() {
   const { navigate } = useNavigation();
 
   function handleSignIn() {
+    if (email === "" || password === "") {
+      Alert.alert("Erro", "Preencha todos os campos!");
+      return;
+    }
+
     setIsLoading(true);
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setEmail("");
+        setPassword("");
+        setIsLoading(false);
+        navigate("home");
+      })
+      .catch(() => {
+        Alert.alert("Erro", "Erro ao logar!");
+      });
   }
 
-  function handleForgotPassword() {}
+  function handleForgotPassword() {
+    if (email === "") {
+      Alert.alert("Erro", "Por favor, informe seu e-mail!");
+      return;
+    }
+
+    setIsLoading(true);
+    auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        setEmail("");
+        setPassword("");
+        setIsLoading(false);
+        Alert.alert(
+          "Sucesso",
+          "E-mail enviado com sucesso! Verifique sua caixa de entrada."
+        );
+      })
+      .catch(() => {
+        Alert.alert("Erro", "Erro ao enviar e-mail!");
+      });
+  }
 
   return (
     <Form>

@@ -32,7 +32,6 @@ export function SignInForm() {
       })
       .catch(() => {
         setEmail("");
-        setPassword("");
         setIsLoading(false);
         Alert.alert("Erro", "Erro ao logar!");
       });

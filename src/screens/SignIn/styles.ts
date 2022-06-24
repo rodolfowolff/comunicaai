@@ -10,16 +10,8 @@ export const Container = styled.View`
 export const Content = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
-    paddingBottom: getBottomSpace() + 48,
+    paddingTop: getBottomSpace() + 100,
   },
 })`
   width: 100%;
-`;
-
-export const SubTitle = styled.Text`
-  font-size: 14px;
-  font-family: ${({ theme }) => theme.FONTS.NORMAL};
-  color: ${({ theme }) => theme.COLORS.SUBTEXT};
-  text-align: center;
-  margin: 12px 0 24px;
 `;

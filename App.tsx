@@ -1,6 +1,8 @@
+import "react-native-gesture-handler";
 import React, { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { preventAutoHideAsync, hideAsync } from "expo-splash-screen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { ThemeProvider } from "styled-components/native";
 import { Text } from "react-native";
 import {
@@ -30,9 +32,11 @@ export default function App() {
   if (!fontsLoaded) return <Text>Loading...</Text>;
 
   return (
-    <ThemeProvider theme={theme}>
-      <StatusBar style="dark" translucent backgroundColor="transparent" />
-      <Routes />
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider theme={theme}>
+        <StatusBar style="dark" translucent backgroundColor="transparent" />
+        <Routes />
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }

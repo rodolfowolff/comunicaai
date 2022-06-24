@@ -11,7 +11,7 @@ export function SignInForm() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   function handleSignIn() {
     setIsLoading(true);
@@ -22,7 +22,7 @@ export function SignInForm() {
   return (
     <Form>
       <Title>COMUNICA AI</Title>
-      <SubTitle>Conte conosco, estamos aqui para ajudar.</SubTitle>
+      <SubTitle>Seja bem vindo</SubTitle>
       <Input placeholder="E-mail" onChangeText={setEmail} />
       <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
       <Button title="ENTRAR" onPress={handleSignIn} isLoading={isLoading} />
@@ -31,7 +31,7 @@ export function SignInForm() {
         <FooterButton
           title="Criar conta"
           icon="person-add"
-          onPress={() => navigation.navigate("register")}
+          onPress={() => navigate("register")}
         />
         <FooterButton
           title="Esqueci senha"

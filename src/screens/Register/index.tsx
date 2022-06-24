@@ -4,8 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components/native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-import { AccountForm } from "../../components/Forms/AccountForm";
-import { Container, Content, SubTitle, BackButton, BackText } from "./styles";
+import { AccountForm } from "@components/Forms/AccountForm";
+import { Container, Content, BackButton, BackText } from "./styles";
 
 export function Register() {
   const theme = useTheme();

@@ -12,21 +12,22 @@ import {
 import theme from "./src/theme";
 
 export default function App() {
-  const [appIsReady, setAppIsReady] = useState(false);
+  preventAutoHideAsync().catch(() => {});
   const [fontsLoaded] = useFonts({
     Inter_700Bold,
     Inter_400Regular,
   });
-
   useEffect(() => {
-    preventAutoHideAsync();
-    if (fontsLoaded) {
-      hideAsync();
+    async function init() {
+      if (fontsLoaded) {
+        await hideAsync();
+      }
     }
+    init();
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    preventAutoHideAsync();
+    return <Text>Loading...</Text>;
   }
 
   return (

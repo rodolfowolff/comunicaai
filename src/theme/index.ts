@@ -1,26 +1,21 @@
 export default {
   COLORS: {
-    BACKGROUND: "#F3F2F8",
+    BACKGROUND: "#FFFFFF",
 
-    PRIMARY: "#55CB97",
-    SECONDARY: "#03314B",
+    PRIMARY: "#354259",
+    SECONDARY: "#023047",
+    TERTIARY: "#FCA311",
 
-    TEXT: "#383B43",
-    SUBTEXT: "#8D919E",
+    TEXT: "#0A1428",
+    SUBTEXT: "#14213D",
 
     WHITE: "#FFFFFF",
+    BLACK: "#0A1428",
     BORDER: "#C5CADA",
   },
 
   FONTS: {
-    SIZES: {
-      BOLD: "Inter_700Bold",
-      NORMAL: "Inter_400Regular",
-    },
-    WEIGHTS: {
-      light: "300",
-      regular: "500",
-      bold: "700",
-    },
+    BOLD: "Inter_700Bold",
+    NORMAL: "Inter_400Regular",
   },
 };

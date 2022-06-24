@@ -29,9 +29,11 @@ export function SignInForm() {
         setEmail("");
         setPassword("");
         setIsLoading(false);
-        navigate("home");
       })
       .catch(() => {
+        setEmail("");
+        setPassword("");
+        setIsLoading(false);
         Alert.alert("Erro", "Erro ao logar!");
       });
   }
@@ -55,6 +57,9 @@ export function SignInForm() {
         );
       })
       .catch(() => {
+        setEmail("");
+        setPassword("");
+        setIsLoading(false);
         Alert.alert("Erro", "Erro ao enviar e-mail!");
       });
   }

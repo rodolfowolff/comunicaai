@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Alert } from "react-native";
 
+import auth from "@react-native-firebase/auth";
+
 import { Button } from "@components/Controllers/Button";
 import { Input } from "@components/Controllers/Input";
 import { Form, Title, SubTitle } from "./styles";
@@ -10,7 +12,22 @@ export function AccountForm() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleNewAccount() {}
+  function handleNewAccount() {
+    setIsLoading(true);
+    auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        Alert.alert("Sucesso", "Usuário criado com sucesso!");
+      })
+      .catch(() => {
+        Alert.alert("Erro", "Erro ao criar usuário!");
+      })
+      .finally(() => {
+        setEmail("");
+        setPassword("");
+        setIsLoading(false);
+      });
+  }
 
   return (
     <Form>

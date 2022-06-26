@@ -5,12 +5,19 @@ import { Container, Title, FilterProps } from "./styles";
 type Props = FilterProps &
   TouchableOpacityProps & {
     title: string;
+    txtColor?: boolean;
   };
 
-export function Filter({ title, backgroundColor, ...rest }: Props) {
+export function Filter({
+  title,
+  backgroundColor,
+  outline,
+  txtColor,
+  ...rest
+}: Props) {
   return (
-    <Container backgroundColor={backgroundColor} {...rest}>
-      <Title>{title}</Title>
+    <Container backgroundColor={backgroundColor} outline={outline} {...rest}>
+      <Title txtColor={txtColor}>{title}</Title>
     </Container>
   );
 }

@@ -6,9 +6,10 @@ import { Container, Title, Options } from "./styles";
 
 type Props = {
   onFilter: (status: string) => void;
+  filterActive: string;
 };
 
-export function Filters({ onFilter }: Props) {
+export function Filters({ onFilter, filterActive }: Props) {
   const theme = useTheme();
 
   return (
@@ -18,14 +19,24 @@ export function Filters({ onFilter }: Props) {
       <Options>
         <Filter
           title="Abertos"
-          backgroundColor={theme.COLORS.BLACK}
+          backgroundColor={
+            filterActive === "open" ? theme.COLORS.BLACK : theme.COLORS.BORDER
+          }
           onPress={() => onFilter("open")}
+          txtColor={filterActive === "open" ? true : false}
+          outline={filterActive === "open" ? false : true}
         />
 
         <Filter
           title="Encerrados"
-          backgroundColor={theme.COLORS.PRIMARY}
+          backgroundColor={
+            filterActive === "closed"
+              ? theme.COLORS.PRIMARY
+              : theme.COLORS.BORDER
+          }
           onPress={() => onFilter("closed")}
+          txtColor={filterActive === "closed" ? true : false}
+          outline={filterActive === "closed" ? false : true}
         />
       </Options>
     </Container>

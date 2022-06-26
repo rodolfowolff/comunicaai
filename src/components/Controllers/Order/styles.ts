@@ -9,7 +9,7 @@ export const Container = styled.View`
   height: 94px;
   flex-direction: row;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 9px;
 `;
 
 export const Content = styled.View`
@@ -17,8 +17,9 @@ export const Content = styled.View`
   height: 94px;
   padding: 0 15px;
   justify-content: center;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
-  border-radius: 10px;
+  background-color: ${({ theme }) => theme.COLORS.LIGHT_GRAY};
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 
 export const Header = styled.View`
@@ -30,6 +31,8 @@ export const Status = styled.View<OrderStyleProps>`
   height: 94px;
   background-color: ${({ theme, status }) =>
     status === "open" ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY};
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 `;
 
 export const Title = styled.Text`

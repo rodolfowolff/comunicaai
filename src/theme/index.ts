@@ -3,15 +3,16 @@ export default {
     BACKGROUND: "#FFFFFF",
 
     PRIMARY: "#354259",
-    SECONDARY: "#023047",
+    SECONDARY: "#313030",
     TERTIARY: "#FCA311",
 
-    TEXT: "#0A1428",
-    SUBTEXT: "#14213D",
+    TEXT: "#011111",
+    SUBTEXT: "#222212",
 
     WHITE: "#FFFFFF",
     BLACK: "#001010",
     BORDER: "#C5CADA",
+    LIGHT_GRAY: "#F5F5F5",
   },
 
   FONTS: {

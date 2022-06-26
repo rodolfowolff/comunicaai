@@ -6,7 +6,7 @@ import firestore from "@react-native-firebase/firestore";
 import { Input } from "@components/Controllers/Input";
 import { Button } from "@components/Controllers/Button";
 import { TextArea } from "@components/Controllers/TextArea";
-import { Form, Title } from "./styles";
+import { Form } from "./styles";
 
 export function OrderForm() {
   const [sector, setSector] = useState("");
@@ -42,7 +42,6 @@ export function OrderForm() {
 
   return (
     <Form>
-      <Title>Novo chamado</Title>
       <Input placeholder="Setor" onChangeText={setSector} />
       <Input placeholder="Responsavel" onChangeText={setResponsible} />
       <TextArea

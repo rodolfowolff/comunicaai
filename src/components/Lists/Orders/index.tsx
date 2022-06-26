@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 
+import firestore from "@react-native-firebase/firestore";
+
 import { Load } from "@components/Animations/Load";
 import { Filters } from "@components/Controllers/Filters";
 import { Order, OrderProps } from "@components/Controllers/Order";
@@ -12,26 +14,50 @@ export function Orders() {
   const [orders, setOrders] = useState<OrderProps[]>([]);
 
   useEffect(() => {
-    // setIsLoading(true);
-  }, []);
+    setIsLoading(true);
+
+    const subscribe = firestore()
+      .collection("orders")
+      .where("status", "==", status)
+      .limit(15)
+      .onSnapshot((querySnapShot) => {
+        let orders = querySnapShot?.docs
+          ?.map((doc) => {
+            return {
+              id: doc?.id,
+              createdAt: doc?.data()?.createdAt,
+              ...doc?.data(),
+            };
+          })
+          .sort(
+            (msg1, msg2) => msg2.createdAt.seconds - msg1.createdAt.seconds
+          ) as OrderProps[];
+        setOrders(orders || []);
+        setIsLoading(false);
+      });
+
+    return () => subscribe();
+  }, [status]);
+
+  const rederItem = ({ item }: { item: OrderProps }) => <Order data={item} />;
 
   return (
     <Container>
       <Filters onFilter={setStatus} />
 
       <Header>
-        <Title>Chamados {status === "open" ? "aberto" : "encerrado"}</Title>
-        <Counter>{orders.length}</Counter>
+        <Title>Chamados {status === "open" ? "abertos" : "encerrados"}</Title>
+        <Counter>{isLoading ? ".." : orders.length}</Counter>
       </Header>
 
       {isLoading ? (
         <Load />
       ) : (
         <FlatList
-          data={orders}
+          data={orders || []}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Order data={item} />}
-          contentContainerStyle={{ paddingBottom: 100 }}
+          renderItem={rederItem}
+          contentContainerStyle={{ paddingBottom: 30 }}
           showsVerticalScrollIndicator={false}
           style={{ flex: 1 }}
         />

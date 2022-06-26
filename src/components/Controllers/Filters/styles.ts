@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 18px;
 `;
 
 export const Title = styled.Text`
@@ -10,7 +10,7 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   color: ${({ theme }) => theme.COLORS.TEXT};
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 `;
 
 export const Options = styled.View`

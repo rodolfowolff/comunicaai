@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { format } from "date-fns";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useTheme } from "styled-components/native";
 
+import { Load } from "@components/Animations/Load";
 import {
   Container,
   Status,
@@ -16,9 +18,13 @@ import {
 
 export type OrderProps = OrderStyleProps & {
   id: string;
-  patrimony: string;
-  equipment: string;
+  sector: string;
+  responsible: string;
   description: string;
+  status: string;
+  createdAt: {
+    seconds: number;
+  };
 };
 
 type Props = {
@@ -27,45 +33,68 @@ type Props = {
 
 export function Order({ data }: Props) {
   const theme = useTheme();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    if (data) {
+      setIsLoading(false);
+    }
+  }, [data]);
 
   return (
     <Container>
-      <Status status={data.status} />
+      {isLoading ? (
+        <Load />
+      ) : (
+        <>
+          <Status status={data.status} />
 
-      <Content>
-        <Header>
-          <Title>Computador Desktop</Title>
-          <MaterialIcons
-            name={data.status === "open" ? "hourglass-empty" : "check-circle"}
-            size={24}
-            color={
-              data.status === "open"
-                ? theme.COLORS.SECONDARY
-                : theme.COLORS.PRIMARY
-            }
-          />
-        </Header>
+          <Content>
+            <Header>
+              <Title>{data.description}</Title>
+              <MaterialIcons
+                name={
+                  data.status === "open" ? "hourglass-empty" : "check-circle"
+                }
+                size={24}
+                color={
+                  data.status === "open"
+                    ? theme.COLORS.SECONDARY
+                    : theme.COLORS.PRIMARY
+                }
+              />
+            </Header>
 
-        <Footer>
-          <Info>
-            <MaterialIcons
-              name="schedule"
-              size={16}
-              color={theme.COLORS.SUBTEXT}
-            />
-            <Label>20/01/22 às 14h</Label>
-          </Info>
+            <Footer>
+              <Info>
+                <MaterialIcons
+                  name="schedule"
+                  size={16}
+                  color={theme.COLORS.SUBTEXT}
+                />
+                <Label>
+                  {data?.createdAt?.seconds
+                    ? format(
+                        new Date(data?.createdAt?.seconds * 1000),
+                        "dd/MM/yyyy HH:mm"
+                      )
+                    : ""}
+                </Label>
+              </Info>
 
-          <Info>
-            <MaterialIcons
-              name="my-location"
-              size={16}
-              color={theme.COLORS.SUBTEXT}
-            />
-            <Label>402345</Label>
-          </Info>
-        </Footer>
-      </Content>
+              <Info>
+                <MaterialIcons
+                  name="emoji-people"
+                  size={16}
+                  color={theme.COLORS.SUBTEXT}
+                />
+                <Label>{data.sector}</Label>
+              </Info>
+            </Footer>
+          </Content>
+        </>
+      )}
     </Container>
   );
 }

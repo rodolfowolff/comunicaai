@@ -1,38 +1,68 @@
-import React, { useRef } from "react";
-import {
-  BottomSheetView,
-  BottomSheetModal,
-  BottomSheetModalProvider,
-} from "@gorhom/bottom-sheet";
+import React, { useCallback, useMemo, useRef, useState } from "react";
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
+import { AntDesign } from "@expo/vector-icons";
 
-import { Background } from "./styles";
+import {
+  Background,
+  ContentContainer,
+  HeaderBottomSheet,
+  Title,
+} from "./styles";
 import { Button } from "@components/Controllers/Button";
 import { OrderForm } from "@components/Forms/OrderForm";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function NewOrder() {
-  const bottomSheetRef = useRef<BottomSheetModal>(null);
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const [bottomSheetOpened, setBottomSheetOpen] = useState(false);
 
-  function handleSnapPress() {
-    bottomSheetRef.current?.present();
-  }
+  const snapPoints = useMemo(() => ["63%", "80%"], []);
+
+  const handleSheetChanges = useCallback((index: number) => {
+    if (index < 0) {
+      bottomSheetRef?.current?.close();
+      setBottomSheetOpen(false);
+    }
+  }, []);
 
   return (
     <>
-      <Button title="NOVO CHAMADO" onPress={handleSnapPress} />
+      <Button
+        title="NOVO CHAMADO"
+        onPress={() => {
+          setBottomSheetOpen(!bottomSheetOpened);
+          bottomSheetRef.current?.expand();
+        }}
+      />
 
-      <BottomSheetModalProvider>
-        <BottomSheetModal
+      {bottomSheetOpened && (
+        <BottomSheet
           ref={bottomSheetRef}
-          snapPoints={["70%"]}
-          style={{ padding: 20 }}
-          enablePanDownToClose={true}
+          index={1}
+          snapPoints={snapPoints}
           backdropComponent={() => <Background />}
+          onChange={handleSheetChanges}
+          enablePanDownToClose={true}
         >
-          <BottomSheetView>
-            <OrderForm />
-          </BottomSheetView>
-        </BottomSheetModal>
-      </BottomSheetModalProvider>
+          <BottomSheetScrollView>
+            <ContentContainer>
+              <HeaderBottomSheet>
+                <Title>Novo chamado</Title>
+                <TouchableOpacity
+                  onPress={() => {
+                    bottomSheetRef?.current?.close();
+                    setBottomSheetOpen(false);
+                  }}
+                >
+                  <AntDesign name="closesquare" size={25} color="black" />
+                </TouchableOpacity>
+              </HeaderBottomSheet>
+
+              <OrderForm />
+            </ContentContainer>
+          </BottomSheetScrollView>
+        </BottomSheet>
+      )}
     </>
   );
 }

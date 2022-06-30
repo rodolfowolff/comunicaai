@@ -1,17 +1,17 @@
 export default {
   COLORS: {
-    BACKGROUND: "#FFFFFF",
+    BACKGROUND: "#FEFEFE",
 
-    PRIMARY: "#354259",
-    SECONDARY: "#313030",
+    PRIMARY: "#313030",
+    SECONDARY: "#868686",
     TERTIARY: "#FCA311",
 
-    TEXT: "#011111",
+    TEXT: "#1C1C1C",
     SUBTEXT: "#222212",
 
     WHITE: "#FFFFFF",
     BLACK: "#001010",
-    BORDER: "#C5CADA",
+    BORDER: "#EAEAEA",
     LIGHT_GRAY: "#F5F5F5",
   },
 
@@ -20,3 +20,15 @@ export default {
     NORMAL: "Inter_400Regular",
   },
 };
+
+export type IColorsTypes =
+  | "BACKGROUND"
+  | "PRIMARY"
+  | "SECONDARY"
+  | "TERTIARY"
+  | "TEXT"
+  | "SUBTEXT"
+  | "WHITE"
+  | "BLACK"
+  | "BORDER"
+  | "LIGHT_GRAY";

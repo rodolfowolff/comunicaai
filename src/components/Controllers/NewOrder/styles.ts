@@ -28,5 +28,4 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   color: ${({ theme }) => theme.COLORS.TEXT};
   align-self: center;
-  margin: 4px auto 20px auto;
 `;

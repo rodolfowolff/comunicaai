@@ -3,7 +3,7 @@ import { TextInput, TextInputProps } from "react-native";
 
 export const Container = styled(TextInput).attrs<TextInputProps>(
   ({ theme }) => ({
-    placeholderTextColor: theme.COLORS.SUBTEXT,
+    placeholderTextColor: theme.COLORS.SECONDARY,
   })
 )<TextInputProps>`
   width: 100%;

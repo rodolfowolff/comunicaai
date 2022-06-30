@@ -16,7 +16,7 @@ export function NewOrder() {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const [bottomSheetOpened, setBottomSheetOpen] = useState(false);
 
-  const snapPoints = useMemo(() => ["63%", "80%"], []);
+  const snapPoints = useMemo(() => ["40%", "95%"], []);
 
   const handleSheetChanges = useCallback((index: number) => {
     if (index < 0) {
@@ -54,7 +54,7 @@ export function NewOrder() {
                     setBottomSheetOpen(false);
                   }}
                 >
-                  <AntDesign name="closesquare" size={25} color="black" />
+                  <AntDesign name="close" size={25} color="black" />
                 </TouchableOpacity>
               </HeaderBottomSheet>
 

@@ -80,7 +80,7 @@ export function OrderForm() {
             iconName: "notification",
             iconSize: 34,
             iconColor: sector !== "Comunicação" ? "SECONDARY" : "BACKGROUND",
-            onPress: () => setSector("Comunicação"),
+            onPress: () => (setSector("Comunicação"), setSelected(false)),
             textColor: sector !== "Comunicação" ? "SECONDARY" : "BACKGROUND",
           },
           {
@@ -91,7 +91,7 @@ export function OrderForm() {
             iconName: "Safety",
             iconSize: 34,
             iconColor: sector !== "Atalaia" ? "SECONDARY" : "BACKGROUND",
-            onPress: () => setSector("Atalaia"),
+            onPress: () => (setSector("Atalaia"), setSelected(false)),
             textColor: sector !== "Atalaia" ? "SECONDARY" : "BACKGROUND",
           },
           {
@@ -104,7 +104,7 @@ export function OrderForm() {
             iconSize: 34,
             iconColor:
               sector !== "BolaCare/Brigada" ? "SECONDARY" : "BACKGROUND",
-            onPress: () => setSector("BolaCare/Brigada"),
+            onPress: () => (setSector("BolaCare/Brigada"), setSelected(false)),
             textColor:
               sector !== "BolaCare/Brigada" ? "SECONDARY" : "BACKGROUND",
           },
@@ -138,7 +138,7 @@ export function OrderForm() {
             <>
               {selected.label === "Carro" && (
                 <View style={{ marginBottom: 20, width: "100%" }}>
-                  <Title>Modelo do carro:</Title>
+                  <Title>Modelo:</Title>
                   <Input
                     placeholder="Insira o modelo do carro"
                     onChangeText={setResponsible}
@@ -151,6 +151,11 @@ export function OrderForm() {
                   <Title>Placa:</Title>
                   <Input
                     placeholder="Insira a placa do carro"
+                    onChangeText={setResponsible}
+                  />
+                  <Title>Motivo:</Title>
+                  <Input
+                    placeholder="Insira o motivo"
                     onChangeText={setResponsible}
                   />
                 </View>

@@ -30,7 +30,8 @@ export function Orders() {
             };
           })
           .sort(
-            (msg1, msg2) => msg2.createdAt.seconds - msg1.createdAt.seconds
+            (order1, order2) =>
+              order2?.createdAt?.seconds - order1?.createdAt?.seconds
           ) as OrderProps[];
         setOrders(orders || []);
         setIsLoading(false);

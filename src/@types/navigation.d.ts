@@ -1,10 +1,4 @@
-export type ProductNavigationProps = {
-  id?: string;
-};
-
-export type OrderNavigationProps = {
-  id: string;
-};
+import { OrderProps } from "@components/Controllers/Order";
 
 export declare global {
   namespace ReactNavigation {
@@ -12,6 +6,7 @@ export declare global {
       home: undefined;
       signIn: undefined;
       register: undefined;
+      order: undefined;
     }
   }
 }

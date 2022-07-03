@@ -113,15 +113,12 @@ const styles = StyleSheet.create({
     width: "100%",
     zIndex: 1,
     borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    marginBottom: 10,
+    paddingHorizontal: 20,
   },
   icon: {
     marginRight: 10,
   },
   dropdown: {
-    // position: "absolute",
     width: "100%",
     height: "100%",
     display: "flex",

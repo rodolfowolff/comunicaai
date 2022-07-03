@@ -8,11 +8,10 @@ export type IColorTypes = {
 };
 
 export const ContentCard = styled.View<IColorTypes>`
-  width: 170px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
 `;
 
 export const Card = styled.TouchableOpacity<IColorTypes>`
@@ -25,13 +24,13 @@ export const Card = styled.TouchableOpacity<IColorTypes>`
     backgroundColor && theme.COLORS[backgroundColor]};
   border: ${({ theme, borderColor }) =>
     borderColor ? `1px solid ${theme.COLORS[borderColor]}` : "none"};
-  border-radius: 5px;
 `;
 
 export const Title = styled.Text<IColorTypes>`
-  font-size: 13px;
+  font-size: 10px;
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   color: ${({ theme, textColor }) => textColor && theme.COLORS[textColor]};
+  text-align: center;
 `;
 
 export const Load = styled.ActivityIndicator.attrs(({ theme }) => ({

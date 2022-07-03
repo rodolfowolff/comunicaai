@@ -1,5 +1,6 @@
 package comunicaai.com.newarchitecture;
 
+// import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import com.facebook.react.PackageList;
@@ -49,6 +50,9 @@ public class MainApplicationReactNativeHost extends ReactNativeHost {
     //     packages.add(new MyReactNativePackage());
     // TurboModules must also be loaded here providing a valid TurboReactPackage implementation:
     //     packages.add(new TurboReactPackage() { ... });
+
+    // packages.add(new ReactNativeFirebaseAppPackage());
+
     // If you have custom Fabric Components, their ViewManagers should also be loaded here
     // inside a ReactPackage.
     return packages;

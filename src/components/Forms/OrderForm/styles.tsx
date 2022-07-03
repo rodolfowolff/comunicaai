@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const Form = styled.View`
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 10px;
 `;
 
@@ -23,5 +23,6 @@ export const Title = styled.Text`
   font-size: 14px;
   color: ${({ theme }) => theme.COLORS.PRIMARY};
   font-family: ${({ theme }) => theme.FONTS.BOLD};
-  margin-bottom: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 `;

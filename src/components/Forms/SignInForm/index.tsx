@@ -32,6 +32,7 @@ export function SignInForm() {
       })
       .catch(() => {
         setEmail("");
+        setPassword("");
         setIsLoading(false);
         Alert.alert("Erro", "Erro ao logar!");
       });
@@ -65,10 +66,15 @@ export function SignInForm() {
 
   return (
     <Form>
-      <Title>COMUNICA AI</Title>
+      <Title>ComunicaAí</Title>
       <SubTitle>Seja bem vindo</SubTitle>
-      <Input placeholder="E-mail" onChangeText={setEmail} />
-      <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
+      <Input placeholder="E-mail" onChangeText={setEmail} value={email} />
+      <Input
+        placeholder="Senha"
+        secureTextEntry
+        onChangeText={setPassword}
+        value={password}
+      />
       <Button title="ENTRAR" onPress={handleSignIn} isLoading={isLoading} />
 
       <Footer>

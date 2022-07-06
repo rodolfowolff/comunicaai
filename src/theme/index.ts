@@ -5,6 +5,7 @@ export default {
     PRIMARY: "#313030",
     SECONDARY: "#868686",
     TERTIARY: "#FCA311",
+    DANGER: "#FF0000",
 
     TEXT: "#1C1C1C",
     SUBTEXT: "#222212",

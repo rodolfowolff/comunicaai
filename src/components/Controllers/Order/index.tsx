@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
-import { Pressable, View } from "react-native";
+import { Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { MaterialIcons } from "@expo/vector-icons";
@@ -53,55 +53,54 @@ export function Order({ data }: Props) {
       ) : (
         <>
           <Status status={data.status} />
-          <>
-            <Pressable onPress={() => navigate("order", { data: data })}>
-              <Content>
-                <Header>
-                  <Title>{data.description}</Title>
+          <Pressable onPress={() => navigate("order", { data: data })}>
+            <Content>
+              <Header>
+                <Title numberOfLines={2}>{data.description}</Title>
+                <MaterialIcons
+                  name={
+                    data.status === "open" ? "hourglass-empty" : "check-circle"
+                  }
+                  size={24}
+                  color={
+                    data.status === "open"
+                      ? theme.COLORS.SECONDARY
+                      : theme.COLORS.PRIMARY
+                  }
+                />
+              </Header>
+
+              <Footer>
+                <Info>
                   <MaterialIcons
-                    name={
-                      data.status === "open"
-                        ? "hourglass-empty"
-                        : "check-circle"
-                    }
-                    size={24}
-                    color={
-                      data.status === "open"
-                        ? theme.COLORS.SECONDARY
-                        : theme.COLORS.PRIMARY
-                    }
+                    name="schedule"
+                    size={16}
+                    color={theme.COLORS.SUBTEXT}
                   />
-                </Header>
+                  <Label>
+                    {data?.createdAt?.seconds
+                      ? format(
+                          new Date(data?.createdAt?.seconds * 1000),
+                          "dd/MM/yy HH:mm"
+                        )
+                      : ""}
+                  </Label>
+                </Info>
 
-                <Footer>
-                  <Info>
-                    <MaterialIcons
-                      name="schedule"
-                      size={16}
-                      color={theme.COLORS.SUBTEXT}
-                    />
-                    <Label>
-                      {data?.createdAt?.seconds
-                        ? format(
-                            new Date(data?.createdAt?.seconds * 1000),
-                            "dd/MM/yyyy HH:mm"
-                          )
-                        : ""}
-                    </Label>
-                  </Info>
-
-                  <Info>
-                    <MaterialIcons
-                      name="emoji-people"
-                      size={16}
-                      color={theme.COLORS.SUBTEXT}
-                    />
-                    <Label>{data.sector}</Label>
-                  </Info>
-                </Footer>
-              </Content>
-            </Pressable>
-          </>
+                <Info>
+                  <MaterialIcons
+                    name="emoji-people"
+                    size={16}
+                    color={theme.COLORS.SUBTEXT}
+                  />
+                  <Label>
+                    {data?.responsible ? `${data?.responsible} - ` : ""}
+                  </Label>
+                  <Label>{data?.sector}</Label>
+                </Info>
+              </Footer>
+            </Content>
+          </Pressable>
         </>
       )}
     </Container>

@@ -26,15 +26,17 @@ export function SignInForm() {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        setEmail("");
-        setPassword("");
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       })
       .catch(() => {
+        Alert.alert("Erro", "Erro ao logar!");
+        setIsLoading(false);
+      })
+      .finally(() => {
         setEmail("");
         setPassword("");
-        setIsLoading(false);
-        Alert.alert("Erro", "Erro ao logar!");
       });
   }
 

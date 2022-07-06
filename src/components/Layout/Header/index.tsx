@@ -19,7 +19,7 @@ export function Header() {
   return (
     <Container>
       <Greeting>
-        <Title>COMUNICA AI</Title>
+        <Title>ComunicaAí</Title>
         <SubTitle>Conte conosco, estamos aqui para ajudar.</SubTitle>
       </Greeting>
 

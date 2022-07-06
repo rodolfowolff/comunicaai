@@ -33,8 +33,20 @@ export function AccountForm() {
     <Form>
       <Title>COMUNICA AI</Title>
       <SubTitle>Cadastra-se e tenha acesso ao app</SubTitle>
-      <Input placeholder="E-mail" onChangeText={setEmail} />
-      <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
+      <Input
+        placeholder="E-mail"
+        onChangeText={setEmail}
+        autoCapitalize="none"
+        autoCorrect={false}
+        keyboardType="email-address"
+      />
+      <Input
+        placeholder="Senha"
+        secureTextEntry
+        onChangeText={setPassword}
+        autoCapitalize="none"
+        autoCorrect={false}
+      />
       <Button
         title="CADASTRAR"
         isLoading={isLoading}

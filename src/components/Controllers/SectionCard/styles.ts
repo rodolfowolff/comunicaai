@@ -8,8 +8,8 @@ export type IColorTypes = {
 };
 
 export const ContentCard = styled.View<IColorTypes>`
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 75px;
   justify-content: center;
   align-items: center;
 `;

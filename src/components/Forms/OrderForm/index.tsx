@@ -180,7 +180,7 @@ export function OrderForm() {
                 <View style={{ marginBottom: 20, width: "100%" }}>
                   <Title>Descrição do chamado:</Title>
                   <TextArea
-                    placeholder="Escreva aqui o chamdo"
+                    placeholder="Escreva aqui o chamado"
                     onChangeText={setDescription}
                   />
                 </View>

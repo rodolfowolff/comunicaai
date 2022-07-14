@@ -2,16 +2,20 @@ import styled from "styled-components/native";
 import { IColorsTypes } from "src/theme";
 
 export type IColorTypes = {
+  width: string;
+  height: string;
+  margin: number;
   backgroundColor?: IColorsTypes;
   borderColor?: IColorsTypes;
   textColor?: IColorsTypes;
 };
 
 export const ContentCard = styled.View<IColorTypes>`
-  width: 80px;
-  height: 75px;
+  width: ${({ width }) => (width ? width : "80px")};
+  height: ${({ height }) => (height ? height : "75px")};
   justify-content: center;
   align-items: center;
+  margin: ${({ margin }) => (margin ? margin : 0) + "px"};
 `;
 
 export const Card = styled.TouchableOpacity<IColorTypes>`

@@ -26,9 +26,9 @@ export function SignInForm() {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 1000);
+        // setTimeout(() => {
+        setIsLoading(false);
+        // }, 1000);
       })
       .catch(() => {
         Alert.alert("Erro", "Erro ao logar!");

@@ -1,3 +1,4 @@
+import { getBottomSpace } from "react-native-iphone-x-helper";
 import styled from "styled-components/native";
 
 export const Form = styled.View`
@@ -10,7 +11,8 @@ export const ContainerCards = styled.View`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  /* padding-bottom: ${getBottomSpace() + 10}px; */
 `;
 
 export const ContainerDropDown = styled.View`

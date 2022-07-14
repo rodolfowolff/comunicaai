@@ -6,6 +6,7 @@ import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
 
 import { Home } from "@screens/Home";
 import { Order } from "@screens/Order";
+import { UserSector } from "@screens/UserSector";
 import { AuthRoutes } from "./auth.routes";
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -20,15 +21,16 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      {user ? (
-        //@ts-ignore
-        <Navigator screenOptions={{ headerShown: false }}>
-          <Screen name="home" component={Home} />
-          <Screen name="order" component={Order} />
-        </Navigator>
-      ) : (
-        <AuthRoutes />
-      )}
+      {/* {user ? ( */}
+      {/* //@ts-ignore */}
+      <Navigator screenOptions={{ headerShown: false }}>
+        {/* <Screen name="home" component={Home} />
+          <Screen name="order" component={Order} /> */}
+        <Screen name="userSector" component={UserSector} />
+      </Navigator>
+      {/* ) : (
+      <AuthRoutes />
+     )} */}
     </NavigationContainer>
   );
 }
